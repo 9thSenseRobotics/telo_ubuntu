@@ -138,7 +138,6 @@ class messageToRobot(robotMessages): # extends robotMessages
 			cos = SubElement(tree, 'co')
 			cos.text = self.comment
 			self.XML = tree
-			dump(self.XML)
 # endclass messageToRobot
 
 class messageFromRobot(robotMessages): # extends robotMessages
@@ -162,7 +161,6 @@ class messageFromRobot(robotMessages): # extends robotMessages
 			self.robotAddr = self.XML.findtext('r')
 			self.responseValue = self.XML.findtext('re')
  			self.comment = self.XML.findtext('co')
-			dump(self.XML)
 		else:
 			self.driverAddr = firstArgument
 			self.robotAddr = robotAddr
@@ -181,5 +179,4 @@ class messageFromRobot(robotMessages): # extends robotMessages
 			cos = SubElement(tree, 'co')
 			cos.text = self.comment
 			self.XML = tree
-			dump(self.XML)
 # endclass messageFromRobot
