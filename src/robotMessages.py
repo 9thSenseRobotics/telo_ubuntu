@@ -22,9 +22,9 @@
 	 Once instantiated, you can reference the contents by theObject.driverAddr, 
 	 theObject.robotAddr, etc.
 	 
-	 To output the contents as XML for sending, use $theObject->XML->asXML();
-	 
-	 See child classes for comments on constructors 
+	 To output the contents as XML for sending, use:
+	 	mfr = messageFromRobot(theXMLStringToParse)
+		outputXMLString = tostring(mfr.XML)
 	 ----------------------------------------------------------------------------------
 	 
 	 Here are the XML formats for messages to and from robot. 
@@ -57,7 +57,7 @@ import inspect, time, math
 
 import pprint
 
-from xml.etree.ElementTree import ElementTree, fromstring, dump, SubElement
+from xml.etree.ElementTree import ElementTree, fromstring, tostring, dump, SubElement
 
 def microtime(get_as_float = False) :
 	if get_as_float:
