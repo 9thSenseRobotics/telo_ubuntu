@@ -68,7 +68,7 @@ class EchoBot(ClientXMPP):
 		global pub
 		if msg['type'] in ('chat', 'normal'):
 			theString = msg['body']
-			myItems = string.split(theString, '|', 2)
+			#myItems = string.split(theString, '|', 2)
 			#myItems is an array of pipe-separated values from the XMPP server.
 			# myItems[0] is the Jabber handle (e.g. "robot@9thsense.com") of the controller
 			# myItems[1] is the "UNIXTIME.microseconds" that the message was sent
@@ -77,14 +77,15 @@ class EchoBot(ClientXMPP):
 			#
 			# rosie@9thsense.com|1331486994.728609|f
 			#
-			mySentTime = float (myItems[1]) # convert time to float
-			myCurrentTime = microtime(True)
-			stringToSend = "I got this message (" + myItems[2].strip() + ") in " + repr(myCurrentTime - mySentTime) + " seconds"
+			#mySentTime = float (myItems[1]) # convert time to float
+			#myCurrentTime = microtime(True)
+			#stringToSend = "I got this message (" + myItems[2].strip() + ") in " + repr(myCurrentTime - mySentTime) + " seconds"
 			
-			rospy.loginfo (stringToSend)
-			pub.publish(myItems[2].strip())
-			#msg.reply(stringToSend).send()
-			self.send_message(mto=myItems[0], mbody=stringToSend) #send the message back to the jabber controller
+			#rospy.loginfo (stringToSend)
+			#pub.publish(myItems[2].strip())
+			#pub.publish(myItems[2].strip())
+			msg.reply(theString).send()
+			#self.send_message(mto=myItems[0], mbody=stringToSend) #send the message back to the jabber controller
 
 if __name__ == '__main__':
 
